@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmar Akram — AI & Automation Analyst</title>
+<style>
+:root{
+  --bg:#05050f;--bg2:#080818;
+  --blue:#0066ff;--blue-b:#3399ff;--blue-glow:rgba(0,102,255,.35);--blue-dim:rgba(0,102,255,.12);
+  --glass:rgba(255,255,255,.04);--gb:rgba(255,255,255,.08);
+  --text:#f0f4ff;--muted:#7a8aaa;--dim:#4a5570;--white:#fff;
+  --r:14px;--font:'Inter',system-ui,sans-serif
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);overflow-x:hidden;line-height:1.6}
+a{color:inherit;text-decoration:none}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--blue);border-radius:2px}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,102,255,.04)1px,transparent 1px),linear-gradient(90deg,rgba(0,102,255,.04)1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(0,102,255,.15),transparent);pointer-events:none;z-index:0}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:68px;background:rgba(5,5,15,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--gb)}
+.nav-logo{font-size:1.1rem;font-weight:800;letter-spacing:-.02em;background:linear-gradient(135deg,#fff,var(--blue-b));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links a{font-size:.85rem;color:var(--muted);transition:color .2s}.nav-links a:hover{color:#fff}
+.nav-cta{background:var(--blue);color:#fff;font-size:.85rem;font-weight:600;padding:.5rem 1.3rem;border-radius:50px;transition:all .2s;box-shadow:0 0 20px var(--blue-glow)}
+.nav-cta:hover{background:var(--blue-b);transform:translateY(-1px)}
+@media(max-width:860px){.nav-links{display:none}}
+section{position:relative;z-index:1;padding:90px 5%}
+.label{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-b);margin-bottom:.9rem;padding:.3rem .9rem;border-radius:50px;border:1px solid rgba(51,153,255,.25);background:rgba(0,102,255,.08)}
+.label::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue-b);animation:blink 1.8s infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.5)}}
+.sec-title{font-size:clamp(1.9rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;color:#fff;margin-bottom:.8rem}
+.sec-title span{background:linear-gradient(135deg,var(--blue),var(--blue-b));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sec-desc{font-size:1rem;color:var(--muted);max-width:620px;line-height:1.75}
+.card{background:var(--glass);border:1px solid var(--gb);border-radius:var(--r);padding:1.5rem;transition:all .25s}
+.card:hover{border-color:rgba(0,102,255,.3);transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,.4)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:.95rem;padding:.8rem 1.8rem;border-radius:50px;transition:all .2s;cursor:pointer;border:none}
+.btn-blue{background:var(--blue);color:#fff;box-shadow:0 0 28px var(--blue-glow)}.btn-blue:hover{background:var(--blue-b);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--gb)}.btn-ghost:hover{border-color:var(--blue);color:var(--blue-b)}
+.tag{display:inline-flex;font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.22rem .6rem;border-radius:50px;background:var(--blue-dim);border:1px solid rgba(0,102,255,.22);color:var(--blue-b)}
+.pill{display:inline-flex;align-items:center;font-size:.68rem;font-weight:700;padding:.2rem .65rem;border-radius:50px;background:linear-gradient(135deg,rgba(0,102,255,.2),rgba(0,200,255,.1));border:1px solid rgba(0,102,255,.3);color:var(--blue-b);margin-bottom:.55rem}
+.icon-box{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:var(--blue-dim);border:1px solid rgba(0,102,255,.2);margin-bottom:.65rem}
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+@media(max-width:900px){.g3{grid-template-columns:repeat(2,1fr)}.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.g2,.g3,.g4{grid-template-columns:1fr}}
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:120px}
+.hero-badge{display:inline-flex;align-items:center;gap:.6rem;background:rgba(0,102,255,.1);border:1px solid rgba(0,102,255,.3);border-radius:50px;padding:.4rem 1.1rem;font-size:.78rem;font-weight:600;color:var(--blue-b);margin-bottom:1.8rem}
+.hero-badge span{width:8px;height:8px;border-radius:50%;background:#00ff88;animation:blink 1.5s infinite;display:block}
+.hero-h{font-size:clamp(2.8rem,6vw,5.2rem);font-weight:900;letter-spacing:-.04em;color:#fff;line-height:1.05;margin-bottom:1.2rem}
+.hero-h .grad{background:linear-gradient(135deg,#0066ff,#3399ff,#00ccff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:clamp(.95rem,1.8vw,1.2rem);color:var(--muted);max-width:640px;margin:0 auto 2.5rem;line-height:1.75}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem}
+.stats-bar{display:flex;gap:2.5rem;flex-wrap:wrap;justify-content:center;padding:1.75rem 2.5rem;background:var(--glass);border:1px solid var(--gb);border-radius:var(--r);backdrop-filter:blur(20px)}
+.stat-num{font-size:2rem;font-weight:900;letter-spacing:-.04em;background:linear-gradient(135deg,#fff,var(--blue-b));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-lbl{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:.15rem}
+#about{background:var(--bg2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+@media(max-width:780px){.about-grid{grid-template-columns:1fr}}
+.about-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.25rem}
+.about-tag{font-size:.75rem;font-weight:600;padding:.35rem .9rem;border-radius:50px;background:var(--glass);border:1px solid var(--gb);color:var(--muted)}
+.stat-card{display:flex;align-items:center;gap:.9rem;padding:1rem 1.25rem;background:var(--glass);border:1px solid var(--gb);border-radius:11px;margin-bottom:.75rem}
+.stat-card-icon{font-size:1.6rem}
+.stat-card h4{font-size:1.3rem;font-weight:900;color:#fff}
+.stat-card p{font-size:.78rem;color:var(--muted)}
+#services{background:var(--bg)}
+.cat-label{display:flex;align-items:center;gap:.9rem;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue-b);margin:1.75rem 0 .8rem}
+.cat-label::before,.cat-label::after{content:'';flex:1;height:1px;background:rgba(0,102,255,.18)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+@media(max-width:860px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.svc-grid{grid-template-columns:1fr}}
+.svc-card{background:var(--glass);border:1px solid var(--gb);border-radius:12px;padding:1rem 1.1rem;transition:all .25s}
+.svc-card:hover{border-color:rgba(0,102,255,.35);box-shadow:0 0 30px rgba(0,102,255,.08)}
+.svc-card h4{font-size:.88rem;font-weight:700;color:#fff;margin:.45rem 0 .6rem}
+.chips{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.65rem}
+.chip{font-size:.72rem;color:var(--muted);padding:.22rem .6rem;border-radius:5px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);transition:all .2s;cursor:default}
+.chip:hover{background:rgba(0,102,255,.1);border-color:rgba(0,102,255,.25);color:#fff}
+.tags{display:flex;flex-wrap:wrap;gap:.3rem}
+.proc-strip{display:flex;background:var(--glass);border:1px solid var(--gb);border-radius:var(--r);overflow:hidden;margin-top:1.75rem}
+@media(max-width:700px){.proc-strip{flex-direction:column}}
+.proc-step{flex:1;padding:1.1rem 1rem;border-right:1px solid var(--gb);text-align:center;transition:background .2s}
+.proc-step:last-child{border-right:none}
+.proc-step:hover{background:rgba(0,102,255,.06)}
+.proc-num{width:28px;height:28px;border-radius:50%;background:var(--blue-dim);border:1px solid rgba(0,102,255,.3);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;color:var(--blue-b);margin:0 auto .6rem}
+.proc-step h5{font-size:.82rem;font-weight:700;color:#fff;margin-bottom:.25rem}
+.proc-step p{font-size:.73rem;color:var(--muted);line-height:1.55}
+#social{background:var(--bg2)}
+.ptabs{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0 .25rem}
+.ptab{display:flex;align-items:center;gap:.4rem;padding:.5rem 1.1rem;border-radius:50px;font-size:.82rem;font-weight:600;background:var(--glass);border:1px solid var(--gb);color:var(--muted);cursor:pointer;transition:all .22s;user-select:none}
+.ptab:hover{color:#fff;border-color:rgba(0,102,255,.35);background:rgba(0,102,255,.06)}
+.ptab.active{background:linear-gradient(135deg,rgba(0,102,255,.2),rgba(0,180,255,.1));border-color:rgba(0,102,255,.55);color:#fff;box-shadow:0 0 18px rgba(0,102,255,.2)}
+.tab-bar{height:2px;background:rgba(0,102,255,.15);border-radius:2px;margin-bottom:1.25rem;overflow:hidden}
+.tab-bar-fill{height:100%;width:12.5%;background:linear-gradient(90deg,var(--blue),#00ccff);border-radius:2px;transition:transform .28s cubic-bezier(.4,0,.2,1)}
+.panels>div{display:none}
+.panels>div.active{display:block;animation:panelIn .3s ease both}
+@keyframes panelIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.panel-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;padding:.6rem 1rem;border-radius:9px;background:rgba(0,102,255,.06);border:1px solid rgba(0,102,255,.12)}
+.panel-header h5{font-size:.8rem;font-weight:700;color:var(--blue-b)}
+.panel-header span{font-size:.72rem;color:var(--muted)}
+.panel-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem}
+@media(max-width:680px){.panel-grid{grid-template-columns:1fr}}
+.flow-card{background:var(--glass);border:1px solid var(--gb);border-radius:12px;padding:1.3rem;transition:border-color .2s}
+.flow-card:hover{border-color:rgba(0,102,255,.25)}
+.flow-card h4{font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.8rem;display:flex;align-items:center;gap:.4rem}
+.flow-steps{display:flex;flex-direction:column;gap:.4rem}
+.fs{display:flex;align-items:flex-start;gap:.65rem;padding:.45rem .6rem;border-radius:7px;background:rgba(0,102,255,.04);border:1px solid rgba(0,102,255,.09);font-size:.8rem;color:var(--muted);line-height:1.45;transition:background .15s}
+.fs:hover{background:rgba(0,102,255,.09);color:var(--text)}
+.fsn{min-width:20px;height:20px;border-radius:50%;background:var(--blue);color:#fff;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.int-chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.8rem}
+.ic{font-size:.68rem;font-weight:600;padding:.22rem .65rem;border-radius:50px;background:rgba(0,102,255,.08);border:1px solid rgba(0,102,255,.2);color:var(--blue-b)}
+#agents{background:var(--bg)}
+.agent-card{background:var(--glass);border:1px solid var(--gb);border-radius:var(--r);padding:1.5rem;transition:all .25s}
+.agent-card:hover{border-color:rgba(0,102,255,.3);transform:translateY(-3px)}
+.agent-status{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;font-weight:700;color:#00ff88;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.8rem}
+.agent-status::before{content:'';width:6px;height:6px;border-radius:50%;background:#00ff88;animation:blink 1.5s infinite}
+.agent-card h4{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:.4rem}
+.agent-card p{font-size:.8rem;color:var(--muted);line-height:1.6;margin-bottom:.85rem}
+.fw-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.fw{font-size:.68rem;font-weight:700;padding:.2rem .6rem;border-radius:50px;background:rgba(0,102,255,.12);border:1px solid rgba(0,102,255,.25);color:var(--blue-b)}
+#stack{background:var(--bg2)}
+.stack-cat{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);margin:1.75rem 0 .6rem}
+.stack-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}
+.sc{display:flex;align-items:center;gap:.45rem;padding:.45rem 1rem;border-radius:50px;font-size:.8rem;font-weight:600;background:var(--glass);border:1px solid var(--gb);color:var(--text);transition:all .2s}
+.sc:hover{border-color:var(--blue);color:var(--blue-b);background:var(--blue-dim)}
+#roi{background:var(--bg)}
+.roi-wrap{max-width:740px;margin:2.5rem auto 0;background:var(--glass);border:1px solid var(--gb);border-radius:18px;padding:2.25rem}
+.roi-g{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+@media(max-width:560px){.roi-g{grid-template-columns:1fr}}
+.roi-lbl{font-size:.75rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.4rem}
+.roi-inp{width:100%;background:rgba(0,0,0,.35);border:1px solid var(--gb);border-radius:9px;padding:.75rem 1rem;color:#fff;font-size:.95rem;outline:none;transition:border-color .2s;font-family:var(--font)}
+.roi-inp:focus{border-color:var(--blue)}
+.roi-result{margin-top:1.75rem;padding:1.5rem;border-radius:12px;background:linear-gradient(135deg,rgba(0,102,255,.15),rgba(0,200,255,.07));border:1px solid rgba(0,102,255,.3);text-align:center}
+.roi-big{font-size:2.8rem;font-weight:900;letter-spacing:-.04em;background:linear-gradient(135deg,#fff,var(--blue-b));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.roi-sub{font-size:.85rem;color:var(--muted);margin-top:.35rem}
+.roi-break{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;margin-top:1.25rem}
+@media(max-width:460px){.roi-break{grid-template-columns:1fr}}
+.rb{background:var(--glass);border:1px solid var(--gb);border-radius:9px;padding:.85rem;text-align:center}
+.rb .n{font-size:1.3rem;font-weight:800;color:#fff}
+.rb .l{font-size:.7rem;color:var(--muted);margin-top:.15rem}
+#proof{background:var(--bg2)}
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem}
+@media(max-width:780px){.proof-grid{grid-template-columns:1fr}}
+.proof-card{background:var(--glass);border:1px solid var(--gb);border-radius:var(--r);padding:1.75rem;transition:all .25s}
+.proof-card:hover{border-color:rgba(0,102,255,.3);transform:translateY(-3px)}
+.proof-num{font-size:2rem;font-weight:900;background:linear-gradient(135deg,#fff,var(--blue-b));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.35rem}
+.proof-card h4{font-size:.92rem;font-weight:700;color:#fff;margin-bottom:.4rem}
+.proof-card p{font-size:.8rem;color:var(--muted);line-height:1.65}
+.proof-ind{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--blue-b);margin-top:.9rem}
+#cta{background:linear-gradient(135deg,rgba(0,102,255,.09),rgba(0,30,80,.35));border-top:1px solid rgba(0,102,255,.2);border-bottom:1px solid rgba(0,102,255,.2);text-align:center}
+.cta-form{max-width:680px;margin:2rem auto 0;display:flex;flex-direction:column;gap:.9rem;text-align:left}
+.fg{display:flex;flex-direction:column;gap:.35rem}
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+@media(max-width:560px){.fg2{grid-template-columns:1fr}}
+.flbl{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.flbl span{color:#ff6b6b}
+.fi{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:.75rem 1rem;color:#fff;font-size:.88rem;outline:none;transition:all .2s;font-family:var(--font)}
+.fi:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,102,255,.1)}
+.fi::placeholder{color:var(--dim)}
+.fi option{background:#0d0d1a;color:#fff}
+select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%233399ff' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;padding-right:2.2rem;cursor:pointer}
+.pcode{flex-shrink:0;width:130px;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:.75rem .65rem;color:#fff;font-size:.82rem;outline:none;font-family:var(--font);appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 12 12'%3E%3Cpath fill='%233399ff' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .5rem center;padding-right:1.6rem;cursor:pointer;transition:border-color .2s}
+.pcode:focus{border-color:var(--blue);outline:none}
+.pcode option{background:#0d0d1a}
+.ftxt{width:100%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:.8rem 1rem;color:#fff;font-size:.88rem;outline:none;resize:vertical;min-height:90px;font-family:var(--font);transition:all .2s}
+.ftxt:focus{border-color:var(--blue)}
+.ftxt::placeholder{color:var(--dim)}
+.form-div{display:flex;align-items:center;gap:.85rem;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);margin:.2rem 0}
+.form-div::before,.form-div::after{content:'';flex:1;height:1px;background:var(--gb)}
+.trust-row{display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-top:.25rem}
+.trust{display:flex;align-items:center;gap:.35rem;font-size:.72rem;color:var(--dim)}
+.success-msg{display:none;padding:1rem 1.25rem;border-radius:9px;background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.3);color:#00ff88;font-size:.88rem;text-align:center}
+footer{position:relative;z-index:1;padding:2.5rem 5% 1.75rem;border-top:1px solid var(--gb);background:var(--bg)}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:2rem;margin-bottom:1.75rem}
+.footer-brand p{font-size:.82rem;color:var(--muted);margin-top:.4rem;max-width:250px}
+.footer-cols{display:flex;gap:2.5rem;flex-wrap:wrap}
+.footer-col h5{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);margin-bottom:.65rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+.footer-col a{font-size:.82rem;color:var(--muted);transition:color .2s}.footer-col a:hover{color:var(--blue-b)}
+.footer-bot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.9rem;padding-top:1.25rem;border-top:1px solid var(--gb)}
+.footer-bot p{font-size:.75rem;color:var(--dim)}
+.socials{display:flex;gap:.65rem}
+.soc{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:var(--glass);border:1px solid var(--gb);font-size:.9rem;transition:all .2s;text-decoration:none}
+.soc:hover{border-color:var(--blue);background:var(--blue-dim)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Ahmar<span style="color:var(--blue)">.</span>AI</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#social">Ecosystem</a></li>
+    <li><a href="#agents">AI Agents</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#proof">Results</a></li>
+    <li><a href="#roi">ROI Calc</a></li>
+  </ul>
+  <a href="https://wa.me/923064444874?text=Hi%20Ahmar%2C%20I%27d%20like%20to%20book%20a%20free%20AI%20Strategy%20Call." target="_blank" class="nav-cta">Book a Call</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-badge"><span></span> Available for New Projects</div>
+  <h1 class="hero-h">AI &amp; Automation<br><span class="grad">Systems Architect</span></h1>
+  <p class="hero-sub">I design and build enterprise-grade AI automation ecosystems — from intelligent WhatsApp bots to full omnichannel AI infrastructure — that transform how businesses operate, engage, and scale.</p>
+  <div class="hero-btns">
+    <a href="https://wa.me/923064444874?text=Hi%20Ahmar%2C%20I%27d%20like%20to%20book%20a%20free%20AI%20Strategy%20Call." target="_blank" class="btn btn-blue">🚀 Book AI Strategy Call</a>
+    <a href="#services" class="btn btn-ghost">Explore Services →</a>
+  </div>
+  <div class="stats-bar">
+    <div><div class="stat-num">120+</div><div class="stat-lbl">Automations Built</div></div>
+    <div><div class="stat-num">40+</div><div class="stat-lbl">AI Systems Deployed</div></div>
+    <div><div class="stat-num">14</div><div class="stat-lbl">Platforms Integrated</div></div>
+    <div><div class="stat-num">85%</div><div class="stat-lbl">Avg Time Saved</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <div class="label">About</div>
+      <h2 class="sec-title">Building the <span>AI-Powered</span> Future of Business</h2>
+      <p class="sec-desc" style="margin-top:.8rem">I'm Ahmar Akram — an AI &amp; Automation Analyst specialising in architecting intelligent systems that automate entire business functions. From agentic AI workflows to omnichannel communication ecosystems, I turn complex operations into self-running machines.</p>
+      <p class="sec-desc" style="margin-top:.75rem">My work spans AI consulting, systems integration, workflow engineering, and growth infrastructure — helping startups and enterprises move faster, operate leaner, and scale without limits.</p>
+      <div class="about-tags">
+        <span class="about-tag">AI Systems Architect</span>
+        <span class="about-tag">Automation Engineer</span>
+        <span class="about-tag">AI Product Strategist</span>
+        <span class="about-tag">Omnichannel Automation Expert</span>
+        <span class="about-tag">AI Integration Consultant</span>
+        <span class="about-tag">Growth Systems Expert</span>
+      </div>
+    </div>
+    <div>
+      <div class="stat-card"><div class="stat-card-icon">⚡</div><div><h4>10x</h4><p>Average productivity multiplier from AI systems</p></div></div>
+      <div class="stat-card"><div class="stat-card-icon">🤖</div><div><h4>24/7</h4><p>Autonomous AI agents running without human input</p></div></div>
+      <div class="stat-card"><div class="stat-card-icon">🌐</div><div><h4>Global</h4><p>Clients across 3 continents — remote-first delivery</p></div></div>
+      <div class="stat-card"><div class="stat-card-icon">💰</div><div><h4>$2M+</h4><p>Estimated value unlocked through automation projects</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="padding:65px 5% 75px;background:var(--bg)">
+  <div class="label">Services</div>
+  <h2 class="sec-title">Full-Spectrum <span>AI Capabilities</span></h2>
+  <p class="sec-desc">Deep technical expertise focused on real business outcomes — from a single workflow fix to a full AI transformation.</p>
+  <div class="cat-label">Core AI Infrastructure</div>
+  <div class="svc-grid">
+    <div class="svc-card"><div class="icon-box">🏗️</div><div class="pill">⚡ Most Requested</div><h4>AI Systems Architecture</h4><div class="chips"><span class="chip">AI stack selection & blueprint</span><span class="chip">Multi-agent orchestration (CrewAI, LangGraph)</span><span class="chip">RAG pipeline — Pinecone / Weaviate</span><span class="chip">Fine-tuning & prompt engineering</span><span class="chip">Docker / Vercel / Railway deploy</span></div><div class="tags"><span class="tag">LangChain</span><span class="tag">CrewAI</span><span class="tag">OpenAI</span><span class="tag">Pinecone</span></div></div>
+    <div class="svc-card"><div class="icon-box">⚙️</div><div class="pill">⏱ 80% Time Saved</div><h4>Workflow Automation Engineering</h4><div class="chips"><span class="chip">End-to-end process mapping</span><span class="chip">n8n / Make / Zapier multi-app flows</span><span class="chip">Conditional logic & error handling</span><span class="chip">Webhook & API orchestration</span><span class="chip">Live monitoring & failure alerts</span></div><div class="tags"><span class="tag">n8n</span><span class="tag">Make</span><span class="tag">Zapier</span></div></div>
+    <div class="svc-card"><div class="icon-box">🔗</div><div class="pill">🔌 100+ Integrations</div><h4>AI Integration & API Orchestration</h4><div class="chips"><span class="chip">REST & GraphQL API integration</span><span class="chip">Legacy system middleware bridging</span><span class="chip">OAuth2 / JWT / API key auth</span><span class="chip">Real-time bi-directional sync</span><span class="chip">Webhook event architecture</span></div><div class="tags"><span class="tag">FastAPI</span><span class="tag">Node.js</span><span class="tag">REST</span></div></div>
+    <div class="svc-card"><div class="icon-box">🗄️</div><div class="pill">🧠 Instant AI Memory</div><h4>AI Data Pipelines & RAG Systems</h4><div class="chips"><span class="chip">Vector DB — Pinecone, Weaviate, Qdrant</span><span class="chip">Document ingestion & smart chunking</span><span class="chip">Semantic + hybrid retrieval search</span><span class="chip">Auto knowledge-base sync</span><span class="chip">Hallucination reduction & RAG eval</span></div><div class="tags"><span class="tag">Pinecone</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span></div></div>
+  </div>
+  <div class="cat-label">Business Process Automation</div>
+  <div class="svc-grid">
+    <div class="svc-card"><div class="icon-box">🏢</div><div class="pill">💰 60% Cost Reduction</div><h4>AI Business Process Automation</h4><div class="chips"><span class="chip">Process audit & ROI opportunity map</span><span class="chip">AI document parsing & data extraction</span><span class="chip">Approval flows & escalation logic</span><span class="chip">Automated compliance reporting</span><span class="chip">SAP / Workday / ERP integration</span></div><div class="tags"><span class="tag">Python</span><span class="tag">n8n</span><span class="tag">OpenAI</span></div></div>
+    <div class="svc-card"><div class="icon-box">📈</div><div class="pill">📊 Full-Funnel Visibility</div><h4>AI Growth Infrastructure</h4><div class="chips"><span class="chip">ICP lead sourcing via Apollo & Clay</span><span class="chip">Personalised email + LinkedIn sequences</span><span class="chip">Lead scoring & CRM auto-population</span><span class="chip">Sales pipeline tracking automation</span><span class="chip">Revenue attribution per campaign</span></div><div class="tags"><span class="tag">HubSpot</span><span class="tag">GoHighLevel</span><span class="tag">Apollo</span></div></div>
+    <div class="svc-card"><div class="icon-box">🔍</div><div class="pill">🛡️ Zero-Defect Releases</div><h4>AI-Powered QA & Testing</h4><div class="chips"><span class="chip">AI test case generation from user stories</span><span class="chip">Regression & smoke test automation</span><span class="chip">LLM output benchmarking & eval</span><span class="chip">Performance & load test pipelines</span><span class="chip">CI/CD quality gate integration</span></div><div class="tags"><span class="tag">Pytest</span><span class="tag">CI/CD</span><span class="tag">LLM Eval</span></div></div>
+    <div class="svc-card"><div class="icon-box">📊</div><div class="pill">🎯 One Source of Truth</div><h4>AI Dashboards & Analytics</h4><div class="chips"><span class="chip">14-platform data aggregation pipeline</span><span class="chip">Real-time KPI tracking & anomaly alerts</span><span class="chip">AI-narrated weekly performance reports</span><span class="chip">Revenue, ops & marketing unified view</span><span class="chip">Custom drill-downs & export automation</span></div><div class="tags"><span class="tag">Supabase</span><span class="tag">Metabase</span><span class="tag">Retool</span></div></div>
+  </div>
+  <div class="cat-label">Customer Experience & Communication AI</div>
+  <div class="svc-grid">
+    <div class="svc-card"><div class="icon-box">💬</div><div class="pill">📱 14 Channels Live</div><h4>AI Communication Systems</h4><div class="chips"><span class="chip">WhatsApp Business API bot build</span><span class="chip">Instagram DM & Messenger automation</span><span class="chip">Telegram & Discord AI bots</span><span class="chip">NLP intent classification & routing</span><span class="chip">Real-time CRM sync on every message</span></div><div class="tags"><span class="tag">WhatsApp API</span><span class="tag">Twilio</span><span class="tag">Meta</span></div></div>
+    <div class="svc-card"><div class="icon-box">🛟</div><div class="pill">✅ 90%+ Auto-Resolved</div><h4>AI Customer Support Systems</h4><div class="chips"><span class="chip">RAG-powered AI support agent</span><span class="chip">Unified inbox — all channels in one place</span><span class="chip">Smart escalation & priority routing</span><span class="chip">Sentiment detection & urgency scoring</span><span class="chip">Automated CSAT collection & reporting</span></div><div class="tags"><span class="tag">Zendesk</span><span class="tag">Freshdesk</span><span class="tag">Intercom</span></div></div>
+    <div class="svc-card"><div class="icon-box">🎙️</div><div class="pill">📞 24/7 AI Calling</div><h4>AI Voice & Conversational AI</h4><div class="chips"><span class="chip">Retell / Vapi voice agent build & deploy</span><span class="chip">Inbound qualification & appointment booking</span><span class="chip">Outbound AI calling campaigns</span><span class="chip">Whisper transcription + CRM call logging</span><span class="chip">Multilingual support — 10+ languages</span></div><div class="tags"><span class="tag">Retell AI</span><span class="tag">Vapi</span><span class="tag">Twilio Voice</span></div></div>
+    <div class="svc-card"><div class="icon-box">🧩</div><div class="pill">🔄 Full Lifecycle Mapped</div><h4>AI CRM & Customer Journey Design</h4><div class="chips"><span class="chip">Customer lifecycle stage mapping</span><span class="chip">Behavioural trigger automation</span><span class="chip">AI segmentation & persona modelling</span><span class="chip">Personalised journey branching logic</span><span class="chip">Churn prediction & retention flows</span></div><div class="tags"><span class="tag">HubSpot</span><span class="tag">Salesforce</span><span class="tag">Zoho</span></div></div>
+  </div>
+  <div class="cat-label">Content, Marketing & Social AI</div>
+  <div class="svc-grid">
+    <div class="svc-card"><div class="icon-box">🎯</div><div class="pill">✍️ 5x Output, Same Team</div><h4>AI Marketing Automation</h4><div class="chips"><span class="chip">30-day AI content calendar generation</span><span class="chip">Copywriting + visuals per platform</span><span class="chip">Ad copy & landing page optimisation</span><span class="chip">Email drip sequences + A/B testing</span><span class="chip">SEO content clusters & programmatic pages</span></div><div class="tags"><span class="tag">OpenAI</span><span class="tag">Buffer</span><span class="tag">Klaviyo</span></div></div>
+    <div class="svc-card"><div class="icon-box">📱</div><div class="pill">🌐 8 Platforms Automated</div><h4>AI Social Media Infrastructure</h4><div class="chips"><span class="chip">Platform-native content — LinkedIn, IG, TikTok, YT</span><span class="chip">Auto-scheduling at peak engagement times</span><span class="chip">AI comment & DM management</span><span class="chip">Viral trend monitoring & fast-response</span><span class="chip">Weekly growth & engagement analytics</span></div><div class="tags"><span class="tag">Buffer</span><span class="tag">Meta API</span><span class="tag">Later</span></div></div>
+    <div class="svc-card"><div class="icon-box">♻️</div><div class="pill">🔁 1 Asset → 20+ Pieces</div><h4>AI Content Repurposing Engine</h4><div class="chips"><span class="chip">Long-form to short-form clip extraction</span><span class="chip">Blog → LinkedIn posts, X threads, carousels</span><span class="chip">Podcast → newsletters & Shorts</span><span class="chip">Multilingual translation & localisation</span><span class="chip">Brand voice consistency enforcement</span></div><div class="tags"><span class="tag">Opus Clip</span><span class="tag">Whisper</span><span class="tag">Claude</span></div></div>
+  </div>
+  <div class="cat-label">Strategy, Intelligence & Agentic Systems</div>
+  <div class="svc-grid">
+    <div class="svc-card"><div class="icon-box">🧠</div><div class="pill">🗺️ 90-Day Roadmap</div><h4>AI Consulting & Strategy</h4><div class="chips"><span class="chip">AI opportunity audit & scoring matrix</span><span class="chip">Prioritised 90-day implementation roadmap</span><span class="chip">ROI modelling & business case deck</span><span class="chip">Tool & vendor evaluation framework</span><span class="chip">Team AI training & change management</span></div><div class="tags"><span class="tag">Strategy</span><span class="tag">Roadmap</span><span class="tag">AI Audit</span></div></div>
+    <div class="svc-card"><div class="icon-box">🤖</div><div class="pill">🕐 Runs 24/7 Unattended</div><h4>AI Agentic Workflows</h4><div class="chips"><span class="chip">Agent roles, tools & memory design</span><span class="chip">CrewAI / LangGraph orchestration build</span><span class="chip">Search, code & API tool integrations</span><span class="chip">Short & long-term memory architecture</span><span class="chip">Human-in-the-loop approval gates</span></div><div class="tags"><span class="tag">CrewAI</span><span class="tag">LangGraph</span><span class="tag">AutoGen</span></div></div>
+    <div class="svc-card"><div class="icon-box">🔬</div><div class="pill">🏆 Enterprise-Grade</div><h4>Intelligent Business Systems</h4><div class="chips"><span class="chip">Cross-department AI integration design</span><span class="chip">Centralised AI operations hub</span><span class="chip">AI governance & compliance framework</span><span class="chip">Continuous learning & model update loops</span><span class="chip">Executive AI command centre dashboard</span></div><div class="tags"><span class="tag">Enterprise AI</span><span class="tag">Python</span><span class="tag">Full-Stack</span></div></div>
+  </div>
+  <div class="cat-label" style="margin-top:1.5rem">How Every Engagement Works</div>
+  <div class="proc-strip">
+    <div class="proc-step"><div class="proc-num">01</div><h5>Discovery Call</h5><p>Free 30-min call — map your ops, spot the highest-ROI wins, agree on scope.</p></div>
+    <div class="proc-step"><div class="proc-num">02</div><h5>AI Audit & Roadmap</h5><p>Full process audit → prioritised roadmap with time-saving and ROI estimates.</p></div>
+    <div class="proc-step"><div class="proc-num">03</div><h5>Build & Integrate</h5><p>Agile sprints — systems built, tested, and wired into your existing stack.</p></div>
+    <div class="proc-step"><div class="proc-num">04</div><h5>Deploy & Monitor</h5><p>Go live with dashboards, performance baselines, and alerts from day one.</p></div>
+    <div class="proc-step"><div class="proc-num">05</div><h5>Optimise & Scale</h5><p>Monthly reviews, model improvements — your AI stack compounds over time.</p></div>
+  </div>
+</section>
+
+<!-- SOCIAL MEDIA ECOSYSTEM -->
+<section id="social">
+  <div class="label">Omnichannel AI</div>
+  <h2 class="sec-title">AI-Powered Social Media &amp; <span>Communication Ecosystem</span></h2>
+  <p class="sec-desc">Every major platform — fully automated, AI-driven, and integrated into one intelligent business engine.</p>
+  <div class="ptabs" id="ptabsRow">
+    <div class="ptab active" onclick="showTab('whatsapp',this,0)">💬 WhatsApp</div>
+    <div class="ptab" onclick="showTab('instagram',this,1)">📸 Instagram</div>
+    <div class="ptab" onclick="showTab('linkedin',this,2)">💼 LinkedIn</div>
+    <div class="ptab" onclick="showTab('youtube',this,3)">▶️ YouTube</div>
+    <div class="ptab" onclick="showTab('tiktok',this,4)">🎵 TikTok</div>
+    <div class="ptab" onclick="showTab('email',this,5)">📧 Email &amp; CRM</div>
+    <div class="ptab" onclick="showTab('support',this,6)">🛟 AI Support</div>
+    <div class="ptab" onclick="showTab('content',this,7)">✍️ Content Engine</div>
+  </div>
+  <div class="tab-bar"><div class="tab-bar-fill" id="tabBarFill"></div></div>
+  <div class="panels">
+    <!-- WHATSAPP -->
+    <div id="tab-whatsapp" class="active">
+      <div class="panel-header"><h5>💬 WhatsApp Business Automation</h5><span>4 automation flows · 20 integration steps</span></div>
+      <div class="panel-grid">
+        <div class="flow-card"><h4>🤖 AI Customer Support Bot</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>Customer sends message via WhatsApp Business</div><div class="fs"><span class="fsn">2</span>n8n webhook triggers intent classification via OpenAI</div><div class="fs"><span class="fsn">3</span>AI pulls answer from RAG knowledge base (Pinecone)</div><div class="fs"><span class="fsn">4</span>Personalised reply sent in under 2 seconds</div><div class="fs"><span class="fsn">5</span>Unresolved tickets escalated to human + logged in CRM</div></div><div class="int-chips"><span class="ic">WhatsApp Business API</span><span class="ic">n8n</span><span class="ic">OpenAI</span><span class="ic">Pinecone</span><span class="ic">HubSpot</span></div></div>
+        <div class="flow-card"><h4>📅 AI Appointment Booking</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>Lead messages requesting a meeting or appointment</div><div class="fs"><span class="fsn">2</span>AI collects name, preferred date, service type via chat</div><div class="fs"><span class="fsn">3</span>Checks real-time availability via Google Calendar API</div><div class="fs"><span class="fsn">4</span>Books slot and sends confirmation + calendar invite</div><div class="fs"><span class="fsn">5</span>24hr and 1hr automated reminder messages sent</div></div><div class="int-chips"><span class="ic">Twilio</span><span class="ic">Calendly API</span><span class="ic">Google Calendar</span><span class="ic">Make</span></div></div>
+        <div class="flow-card"><h4>🎯 AI Lead Qualification</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>Inbound lead captured from ads or landing page</div><div class="fs"><span class="fsn">2</span>AI initiates BANT qualification conversation on WhatsApp</div><div class="fs"><span class="fsn">3</span>Lead scored on budget, timeline, authority, and need</div><div class="fs"><span class="fsn">4</span>Hot leads routed to sales team in real time via Slack</div><div class="fs"><span class="fsn">5</span>Cold leads enrolled into automated nurture sequence</div></div><div class="int-chips"><span class="ic">Meta Ads API</span><span class="ic">Zapier</span><span class="ic">Salesforce</span><span class="ic">Slack</span></div></div>
+        <div class="flow-card"><h4>💳 AI Order Tracking & Payments</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>Customer asks about order status via WhatsApp</div><div class="fs"><span class="fsn">2</span>AI authenticates via phone number and order ID</div><div class="fs"><span class="fsn">3</span>Pulls live data from Shopify or WooCommerce</div><div class="fs"><span class="fsn">4</span>Sends tracking link and estimated delivery window</div><div class="fs"><span class="fsn">5</span>Automated payment reminders on overdue invoices</div></div><div class="int-chips"><span class="ic">Shopify</span><span class="ic">Stripe</span><span class="ic">WooCommerce</span><span class="ic">Notion</span></div></div>
+      </div>
+    </div>
+    <!-- INSTAGRAM -->
+    <div id="tab-instagram">
+      <div class="panel-header"><h5>📸 Instagram AI Automation</h5><span>4 automation flows · 20 integration steps</span></div>
+      <div class="panel-grid">
+        <div class="flow-card"><h4>📩 AI DM Automation & Lead Capture</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>User comments keyword on reel or post (e.g. "INFO")</div><div class="fs"><span class="fsn">2</span>AI auto-DMs personalised resource or lead magnet</div><div class="fs"><span class="fsn">3</span>Conversation continues to qualify and nurture lead</div><div class="fs"><span class="fsn">4</span>Lead captured into CRM with Instagram source tag</div><div class="fs"><span class="fsn">5</span>Follow-up email or WhatsApp sequence triggered</div></div><div class="int-chips"><span class="ic">Instagram Graph API</span><span class="ic">ManyChat</span><span class="ic">n8n</span><span class="ic">GoHighLevel</span></div></div>
+        <div class="flow-card"><h4>🎥 AI Reel & Content Planning</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>AI monitors trending audio and hashtags daily</div><div class="fs"><span class="fsn">2</span>Generates weekly content calendar with hooks and angles</div><div class="fs"><span class="fsn">3</span>Scripts short-form videos using viral content structures</div><div class="fs"><span class="fsn">4</span>Auto-generates captions, hashtags, and CTA copy</div><div class="fs"><span class="fsn">5</span>Schedules posts via Buffer or Later at optimal times</div></div><div class="int-chips"><span class="ic">OpenAI</span><span class="ic">Buffer</span><span class="ic">Later</span><span class="ic">Airtable</span></div></div>
+        <div class="flow-card"><h4>📊 AI Engagement & Growth System</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>AI auto-replies to comments within minutes of posting</div><div class="fs"><span class="fsn">2</span>Sentiment analysis flags negative or urgent comments</div><div class="fs"><span class="fsn">3</span>Engagement scoring identifies top-performing followers</div><div class="fs"><span class="fsn">4</span>AI suggests collaboration and influencer targets weekly</div><div class="fs"><span class="fsn">5</span>Weekly growth report generated and sent to your email</div></div><div class="int-chips"><span class="ic">Meta API</span><span class="ic">Claude</span><span class="ic">Google Sheets</span></div></div>
+        <div class="flow-card"><h4>🎨 AI Carousel Generator</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>Topic or blog post URL provided as input</div><div class="fs"><span class="fsn">2</span>AI extracts 7–10 key insights for carousel slides</div><div class="fs"><span class="fsn">3</span>DALL-E generates visuals for each slide concept</div><div class="fs"><span class="fsn">4</span>Brand template applied automatically via Canva API</div><div class="fs"><span class="fsn">5</span>Ready-to-post carousel added to content publishing queue</div></div><div class="int-chips"><span class="ic">DALL-E 3</span><span class="ic">Canva API</span><span class="ic">Make</span><span class="ic">Notion</span></div></div>
+      </div>
+    </div>
+    <!-- LINKEDIN -->
+    <div id="tab-linkedin">
+      <div class="panel-header"><h5>💼 LinkedIn B2B Automation</h5><span>4 automation flows · 20 integration steps</span></div>
+      <div class="panel-grid">
+        <div class="flow-card"><h4>🧠 AI Thought Leadership Engine</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>AI monitors industry news and competitor posts daily</div><div class="fs"><span class="fsn">2</span>Extracts unique angles and contrarian insights</div><div class="fs"><span class="fsn">3</span>Drafts LinkedIn posts in your personal tone and voice</div><div class="fs"><span class="fsn">4</span>Schedules 5x per week at peak engagement windows</div><div class="fs"><span class="fsn">5</span>Performance data feeds back to improve future content</div></div><div class="int-chips"><span class="ic">LinkedIn API</span><span class="ic">OpenAI</span><span class="ic">Taplio</span><span class="ic">n8n</span></div></div>
+        <div class="flow-card"><h4>🎯 AI B2B Lead Generation</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>ICP defined — title, company size, industry, location</div><div class="fs"><span class="fsn">2</span>AI scrapes and scores matching profiles via Sales Navigator</div><div class="fs"><span class="fsn">3</span>Personalised connection request crafted per prospect</div><div class="fs"><span class="fsn">4</span>On accept — AI sends hyper-personalised opener DM</div><div class="fs"><span class="fsn">5</span>Multi-touch sequence guides toward discovery call</div></div><div class="int-chips"><span class="ic">Sales Navigator</span><span class="ic">PhantomBuster</span><span class="ic">HubSpot</span><span class="ic">Clay</span></div></div>
+        <div class="flow-card"><h4>📬 AI Outreach & Nurture System</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>AI identifies warm leads from post likes and comments</div><div class="fs"><span class="fsn">2</span>Triggers personalised DM based on content they engaged</div><div class="fs"><span class="fsn">3</span>Tracks all conversation threads across every prospect</div><div class="fs"><span class="fsn">4</span>AI suggests next-best-action for each lead daily</div><div class="fs"><span class="fsn">5</span>All activity synced to CRM in real time automatically</div></div><div class="int-chips"><span class="ic">Dux-Soup</span><span class="ic">Salesforce</span><span class="ic">Zapier</span><span class="ic">Slack</span></div></div>
+        <div class="flow-card"><h4>📈 AI Profile & Authority Building</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>AI audits LinkedIn profile for keyword optimisation gaps</div><div class="fs"><span class="fsn">2</span>Generates SEO-rich headline, about, and experience copy</div><div class="fs"><span class="fsn">3</span>Tracks Social Selling Index and recommends weekly actions</div><div class="fs"><span class="fsn">4</span>Automates skill endorsement and recommendation requests</div><div class="fs"><span class="fsn">5</span>Monthly authority score report delivered automatically</div></div><div class="int-chips"><span class="ic">LinkedIn API</span><span class="ic">Claude</span><span class="ic">Notion</span></div></div>
+      </div>
+    </div>
+    <!-- YOUTUBE -->
+    <div id="tab-youtube">
+      <div class="panel-header"><h5>▶️ YouTube AI Production Pipeline</h5><span>4 automation flows · 20 integration steps</span></div>
+      <div class="panel-grid">
+        <div class="flow-card"><h4>🎬 AI Full Production Pipeline</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>AI identifies high-opportunity keywords via vidIQ & TubeBuddy</div><div class="fs"><span class="fsn">2</span>Generates full video script — hook, body, CTA, timestamps</div><div class="fs"><span class="fsn">3</span>AI creates thumbnail concepts via DALL-E and Canva</div><div class="fs"><span class="fsn">4</span>Auto-generates title variants, description, and tags</div><div class="fs"><span class="fsn">5</span>Schedules upload via YouTube Data API at optimal time</div></div><div class="int-chips"><span class="ic">YouTube API</span><span class="ic">OpenAI</span><span class="ic">DALL-E</span><span class="ic">vidIQ</span></div></div>
+        <div class="flow-card"><h4>✂️ AI Clip & Repurposing Engine</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>Long-form video uploaded or YouTube URL provided</div><div class="fs"><span class="fsn">2</span>AI transcribes and identifies the best viral-worthy moments</div><div class="fs"><span class="fsn">3</span>Clips extracted and formatted for each platform</div><div class="fs"><span class="fsn">4</span>Captions, hooks, and subtitles auto-generated per clip</div><div class="fs"><span class="fsn">5</span>Auto-published as Shorts, Reels, TikToks, and X clips</div></div><div class="int-chips"><span class="ic">Opus Clip</span><span class="ic">Whisper API</span><span class="ic">Make</span><span class="ic">Buffer</span></div></div>
+        <div class="flow-card"><h4>📈 AI SEO & Retention Optimisation</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>AI analyses retention curves on all existing videos</div><div class="fs"><span class="fsn">2</span>Identifies drop-off patterns and structural weaknesses</div><div class="fs"><span class="fsn">3</span>Recommends hook improvements and pacing changes</div><div class="fs"><span class="fsn">4</span>A/B tests thumbnail variants and title formats</div><div class="fs"><span class="fsn">5</span>Automated weekly channel analytics report sent to email</div></div><div class="int-chips"><span class="ic">YouTube Analytics API</span><span class="ic">vidIQ</span><span class="ic">Claude</span></div></div>
+        <div class="flow-card"><h4>💬 AI Comment Engagement System</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>AI monitors all comments within minutes of upload going live</div><div class="fs"><span class="fsn">2</span>Classifies each as: question, praise, criticism, or spam</div><div class="fs"><span class="fsn">3</span>Drafts personalised replies for human review and approval</div><div class="fs"><span class="fsn">4</span>Pins the best comment automatically to boost engagement</div><div class="fs"><span class="fsn">5</span>Hot questions repurposed into new video ideas automatically</div></div><div class="int-chips"><span class="ic">YouTube API</span><span class="ic">OpenAI</span><span class="ic">Airtable</span></div></div>
+      </div>
+    </div>
+    <!-- TIKTOK -->
+    <div id="tab-tiktok">
+      <div class="panel-header"><h5>🎵 TikTok Viral Growth System</h5><span>4 automation flows · 20 integration steps</span></div>
+      <div class="panel-grid">
+        <div class="flow-card"><h4>🔥 AI Viral Trend Detection</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>AI scrapes TikTok Creative Center trending data daily</div><div class="fs"><span class="fsn">2</span>Cross-references trends with your niche and target audience</div><div class="fs"><span class="fsn">3</span>Scores each trend on velocity, relevance, and brand fit</div><div class="fs"><span class="fsn">4</span>Generates 5 content ideas built around the top trends</div><div class="fs"><span class="fsn">5</span>Delivers full content brief to your queue every Monday</div></div><div class="int-chips"><span class="ic">TikTok API</span><span class="ic">Claude</span><span class="ic">n8n</span><span class="ic">Notion</span></div></div>
+        <div class="flow-card"><h4>✍️ AI Hook & Script Generator</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>Topic or keyword provided as input to the system</div><div class="fs"><span class="fsn">2</span>AI generates 10 hook variants — pattern interrupt, question, bold claim</div><div class="fs"><span class="fsn">3</span>Full 60-second script written with proven retention patterns</div><div class="fs"><span class="fsn">4</span>On-screen text overlays and CTA copy generated per video</div><div class="fs"><span class="fsn">5</span>Hashtag strategy generated from real-time niche data</div></div><div class="int-chips"><span class="ic">OpenAI</span><span class="ic">CapCut API</span><span class="ic">Airtable</span></div></div>
+        <div class="flow-card"><h4>🎬 AI Content Scheduling System</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>30-day content calendar generated with themes and formats</div><div class="fs"><span class="fsn">2</span>Videos queued and uploaded automatically via TikTok API</div><div class="fs"><span class="fsn">3</span>Best posting times identified from account analytics</div><div class="fs"><span class="fsn">4</span>Auto-posting at optimal times for maximum reach</div><div class="fs"><span class="fsn">5</span>Weekly performance analytics report generated automatically</div></div><div class="int-chips"><span class="ic">TikTok API</span><span class="ic">Buffer</span><span class="ic">n8n</span></div></div>
+        <div class="flow-card"><h4>📊 AI Growth Analytics Dashboard</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>All TikTok metrics pulled into a central dashboard</div><div class="fs"><span class="fsn">2</span>AI identifies which video formats drive most followers</div><div class="fs"><span class="fsn">3</span>Engagement rate, watch time, and shares tracked per post</div><div class="fs"><span class="fsn">4</span>Competitor accounts benchmarked weekly automatically</div><div class="fs"><span class="fsn">5</span>AI recommends content pivots based on performance data</div></div><div class="int-chips"><span class="ic">TikTok Analytics API</span><span class="ic">Supabase</span><span class="ic">Retool</span></div></div>
+      </div>
+    </div>
+    <!-- EMAIL & CRM -->
+    <div id="tab-email">
+      <div class="panel-header"><h5>📧 Email &amp; CRM Automation Engine</h5><span>4 automation flows · 20 integration steps</span></div>
+      <div class="panel-grid">
+        <div class="flow-card"><h4>📧 AI Email Marketing System</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>Lead captured via form, ads, or social → enters CRM</div><div class="fs"><span class="fsn">2</span>AI segments by behaviour, traffic source, and intent score</div><div class="fs"><span class="fsn">3</span>Personalised drip sequence automatically triggered</div><div class="fs"><span class="fsn">4</span>AI generates and A/B tests subject lines for every email</div><div class="fs"><span class="fsn">5</span>Revenue attributed back to each email sent automatically</div></div><div class="int-chips"><span class="ic">ActiveCampaign</span><span class="ic">HubSpot</span><span class="ic">Klaviyo</span><span class="ic">OpenAI</span></div></div>
+        <div class="flow-card"><h4>🔄 AI CRM Automation Engine</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>All inbound leads auto-enriched via Apollo and Clearbit</div><div class="fs"><span class="fsn">2</span>AI assigns lead score based on behaviour and firmographics</div><div class="fs"><span class="fsn">3</span>Sales task auto-created for hot leads with personalised notes</div><div class="fs"><span class="fsn">4</span>Deal stage updates trigger the relevant next-step automation</div><div class="fs"><span class="fsn">5</span>Won/lost analysis fed back to improve future targeting</div></div><div class="int-chips"><span class="ic">HubSpot</span><span class="ic">GoHighLevel</span><span class="ic">Salesforce</span><span class="ic">Apollo</span></div></div>
+        <div class="flow-card"><h4>🧊 AI Cold Outreach System</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>ICP-matched leads sourced from LinkedIn and Apollo</div><div class="fs"><span class="fsn">2</span>AI writes hyper-personalised first line per individual lead</div><div class="fs"><span class="fsn">3</span>Sequence sent across email and LinkedIn simultaneously</div><div class="fs"><span class="fsn">4</span>Replies detected → AI drafts personalised response suggestions</div><div class="fs"><span class="fsn">5</span>Booked meetings auto-synced to calendar and CRM instantly</div></div><div class="int-chips"><span class="ic">Instantly</span><span class="ic">Lemlist</span><span class="ic">Apollo</span><span class="ic">Clay</span></div></div>
+        <div class="flow-card"><h4>📰 AI Newsletter & Content System</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>AI monitors industry news and curates the top stories</div><div class="fs"><span class="fsn">2</span>Drafts weekly newsletter with commentary in your voice</div><div class="fs"><span class="fsn">3</span>Personalises the intro block per subscriber segment</div><div class="fs"><span class="fsn">4</span>Sends at optimal time per subscriber timezone automatically</div><div class="fs"><span class="fsn">5</span>Open and click data improves segmentation automatically</div></div><div class="int-chips"><span class="ic">Beehiiv</span><span class="ic">ConvertKit</span><span class="ic">OpenAI</span><span class="ic">Make</span></div></div>
+      </div>
+    </div>
+    <!-- AI SUPPORT -->
+    <div id="tab-support">
+      <div class="panel-header"><h5>🛟 Omnichannel AI Support Hub</h5><span>4 automation flows · 20 integration steps</span></div>
+      <div class="panel-grid">
+        <div class="flow-card"><h4>🌐 Omnichannel AI Support Hub</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>Messages arrive from WhatsApp, Instagram, Messenger, Telegram, Web Chat</div><div class="fs"><span class="fsn">2</span>Unified inbox (Chatwoot / Intercom) receives all channels</div><div class="fs"><span class="fsn">3</span>AI agent attempts resolution using RAG knowledge base</div><div class="fs"><span class="fsn">4</span>Complex issues escalated with full context to human agent</div><div class="fs"><span class="fsn">5</span>CSAT survey collected automatically after every resolution</div></div><div class="int-chips"><span class="ic">Chatwoot</span><span class="ic">Intercom</span><span class="ic">Pinecone</span><span class="ic">Claude</span></div></div>
+        <div class="flow-card"><h4>🎫 AI Ticket Routing & Escalation</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>Incoming ticket classified by type, urgency, and sentiment</div><div class="fs"><span class="fsn">2</span>AI assigns priority score P1–P4 based on content</div><div class="fs"><span class="fsn">3</span>Routes to best-fit agent based on skills and availability</div><div class="fs"><span class="fsn">4</span>AI drafts a suggested reply for agent review before sending</div><div class="fs"><span class="fsn">5</span>SLA breach alerts triggered automatically before deadline</div></div><div class="int-chips"><span class="ic">Zendesk</span><span class="ic">Freshdesk</span><span class="ic">OpenAI</span><span class="ic">Slack</span></div></div>
+        <div class="flow-card"><h4>🧠 AI Knowledge Base Assistant</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>All help docs, FAQs, and SOPs ingested into Pinecone</div><div class="fs"><span class="fsn">2</span>AI answers support queries using semantic RAG retrieval</div><div class="fs"><span class="fsn">3</span>Gaps in knowledge base automatically flagged for review</div><div class="fs"><span class="fsn">4</span>New resolved tickets added to knowledge base automatically</div><div class="fs"><span class="fsn">5</span>Monthly knowledge base health report generated</div></div><div class="int-chips"><span class="ic">Pinecone</span><span class="ic">Notion</span><span class="ic">Claude</span><span class="ic">n8n</span></div></div>
+        <div class="flow-card"><h4>📊 AI Support Analytics & Insights</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>All support conversations analysed for patterns daily</div><div class="fs"><span class="fsn">2</span>Top issue categories surfaced and ranked by volume</div><div class="fs"><span class="fsn">3</span>Agent performance scores tracked per ticket automatically</div><div class="fs"><span class="fsn">4</span>Customer sentiment trends reported weekly to management</div><div class="fs"><span class="fsn">5</span>Product feedback from tickets routed to dev team automatically</div></div><div class="int-chips"><span class="ic">Supabase</span><span class="ic">Metabase</span><span class="ic">OpenAI</span></div></div>
+      </div>
+    </div>
+    <!-- CONTENT ENGINE -->
+    <div id="tab-content">
+      <div class="panel-header"><h5>✍️ AI Content Operating System</h5><span>4 automation flows · 20 integration steps</span></div>
+      <div class="panel-grid">
+        <div class="flow-card"><h4>🏭 AI Content Operating System</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>Monthly content strategy set — pillars, themes, and goals</div><div class="fs"><span class="fsn">2</span>AI auto-generates complete 30-day content calendar</div><div class="fs"><span class="fsn">3</span>Each post produced — copy, visuals, hashtags, and CTA</div><div class="fs"><span class="fsn">4</span>Human reviews and approves → auto-scheduled instantly</div><div class="fs"><span class="fsn">5</span>Performance data informs the following month's strategy</div></div><div class="int-chips"><span class="ic">OpenAI</span><span class="ic">DALL-E</span><span class="ic">Buffer</span><span class="ic">Airtable</span></div></div>
+        <div class="flow-card"><h4>♻️ AI Repurposing Engine</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>Long-form content input — blog, podcast, or YouTube video</div><div class="fs"><span class="fsn">2</span>AI extracts 10+ content atoms from the source material</div><div class="fs"><span class="fsn">3</span>Each atom adapted for LinkedIn, Twitter, Instagram, TikTok</div><div class="fs"><span class="fsn">4</span>Platform-native format generated — carousel, thread, reel script</div><div class="fs"><span class="fsn">5</span>All pieces scheduled across platforms over the next 2 weeks</div></div><div class="int-chips"><span class="ic">Claude</span><span class="ic">Opus Clip</span><span class="ic">Canva API</span><span class="ic">Buffer</span></div></div>
+        <div class="flow-card"><h4>🎨 AI Visual Content Generation</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>Content brief or topic provided as input</div><div class="fs"><span class="fsn">2</span>AI generates image prompts aligned to brand guidelines</div><div class="fs"><span class="fsn">3</span>DALL-E 3 creates visuals for posts, thumbnails, and ads</div><div class="fs"><span class="fsn">4</span>Brand colours, fonts, and overlays applied via Canva API</div><div class="fs"><span class="fsn">5</span>Final assets delivered to content library automatically</div></div><div class="int-chips"><span class="ic">DALL-E 3</span><span class="ic">Canva API</span><span class="ic">Cloudinary</span><span class="ic">Make</span></div></div>
+        <div class="flow-card"><h4>📊 AI Content Analytics Engine</h4><div class="flow-steps"><div class="fs"><span class="fsn">1</span>All published content tracked across every platform</div><div class="fs"><span class="fsn">2</span>Engagement, reach, and conversion data aggregated daily</div><div class="fs"><span class="fsn">3</span>Top-performing formats and topics identified by AI</div><div class="fs"><span class="fsn">4</span>Underperforming content flagged with improvement suggestions</div><div class="fs"><span class="fsn">5</span>Weekly content performance report generated and emailed</div></div><div class="int-chips"><span class="ic">Supabase</span><span class="ic">Claude</span><span class="ic">Google Sheets</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI AGENTS -->
+<section id="agents">
+  <div class="label">Autonomous AI</div>
+  <h2 class="sec-title">AI Agents &amp; <span>Autonomous Systems</span></h2>
+  <p class="sec-desc">Multi-agent frameworks that work 24/7 — researching, creating, communicating, and optimising without human intervention.</p>
+  <div class="g3" style="margin-top:2rem">
+    <div class="agent-card"><div class="agent-status">Active</div><div style="font-size:1.8rem;margin-bottom:.4rem">📱</div><h4>AI Social Media Manager</h4><p>Plans, creates, schedules, and analyses content across all platforms. Responds to comments and DMs. Sends weekly performance summaries.</p><div class="fw-tags"><span class="fw">CrewAI</span><span class="fw">OpenAI</span><span class="fw">Buffer API</span></div></div>
+    <div class="agent-card"><div class="agent-status">Active</div><div style="font-size:1.8rem;margin-bottom:.4rem">🎯</div><h4>AI Sales Development Agent</h4><p>Prospecting, lead scoring, personalised outreach, follow-up sequences, and meeting booking — no human needed until the call is confirmed.</p><div class="fw-tags"><span class="fw">LangGraph</span><span class="fw">Clay</span><span class="fw">HubSpot</span></div></div>
+    <div class="agent-card"><div class="agent-status">Active</div><div style="font-size:1.8rem;margin-bottom:.4rem">🛟</div><h4>AI Customer Success Manager</h4><p>Monitors customer health scores, proactively reaches at-risk accounts, sends check-in messages, and escalates churn signals to the team.</p><div class="fw-tags"><span class="fw">AutoGen</span><span class="fw">Salesforce</span><span class="fw">Slack</span></div></div>
+    <div class="agent-card"><div class="agent-status">Active</div><div style="font-size:1.8rem;margin-bottom:.4rem">🔍</div><h4>AI Research Agent</h4><p>Deep-dives into competitors, market trends, industry reports, and customer sentiment. Produces structured research briefs on demand.</p><div class="fw-tags"><span class="fw">LangChain</span><span class="fw">Perplexity API</span><span class="fw">Pinecone</span></div></div>
+    <div class="agent-card"><div class="agent-status">Active</div><div style="font-size:1.8rem;margin-bottom:.4rem">📊</div><h4>AI Reporting Agent</h4><p>Pulls data from all connected platforms, generates executive dashboards, interprets anomalies, and delivers weekly narrative reports.</p><div class="fw-tags"><span class="fw">OpenAI</span><span class="fw">Supabase</span><span class="fw">Retool</span></div></div>
+    <div class="agent-card"><div class="agent-status">Active</div><div style="font-size:1.8rem;margin-bottom:.4rem">⚙️</div><h4>AI Operations Orchestrator</h4><p>Master coordination agent managing all other AI agents — assigning tasks, monitoring outputs, resolving conflicts, and optimising throughput.</p><div class="fw-tags"><span class="fw">CrewAI</span><span class="fw">MCP Servers</span><span class="fw">LangGraph</span></div></div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section id="stack">
+  <div class="label">Technology</div>
+  <h2 class="sec-title">Enterprise-Grade <span>Tech Stack</span></h2>
+  <p class="sec-desc">Every tool chosen for maximum reliability, scalability, and AI-first capability.</p>
+  <div class="stack-cat" style="margin-top:1.75rem">🤖 AI & LLMs</div>
+  <div class="stack-chips"><span class="sc">⚡ OpenAI GPT-4o</span><span class="sc">🧠 Claude (Anthropic)</span><span class="sc">🔷 Gemini Pro</span><span class="sc">🦙 Llama 3</span><span class="sc">🌊 DeepSeek</span><span class="sc">🎨 DALL-E 3</span><span class="sc">🔊 Whisper</span></div>
+  <div class="stack-cat">⚙️ Automation Platforms</div>
+  <div class="stack-chips"><span class="sc">🔄 n8n</span><span class="sc">🔧 Make (Integromat)</span><span class="sc">⚡ Zapier</span><span class="sc">🔗 LangChain</span><span class="sc">👥 CrewAI</span><span class="sc">📊 LangGraph</span><span class="sc">🤖 AutoGen</span></div>
+  <div class="stack-cat">💻 Frontend & Backend</div>
+  <div class="stack-chips"><span class="sc">⚛️ Next.js</span><span class="sc">🎨 Tailwind CSS</span><span class="sc">🎭 Framer Motion</span><span class="sc">🟩 Node.js</span><span class="sc">🐍 Python</span><span class="sc">⚡ FastAPI</span><span class="sc">📘 TypeScript</span></div>
+  <div class="stack-cat">🗄️ Databases & Storage</div>
+  <div class="stack-chips"><span class="sc">🐘 PostgreSQL</span><span class="sc">⚡ Supabase</span><span class="sc">🌲 Pinecone</span><span class="sc">🔥 Firebase</span><span class="sc">📦 Airtable</span><span class="sc">🗃️ Notion</span></div>
+  <div class="stack-cat">🚀 Deployment & Infra</div>
+  <div class="stack-chips"><span class="sc">▲ Vercel</span><span class="sc">🚂 Railway</span><span class="sc">🐳 Docker</span><span class="sc">☁️ Cloudflare</span><span class="sc">🔒 AWS Lambda</span></div>
+  <div class="stack-cat">📣 CRM & Communication</div>
+  <div class="stack-chips"><span class="sc">🟠 HubSpot</span><span class="sc">🟣 GoHighLevel</span><span class="sc">☁️ Salesforce</span><span class="sc">🟢 Twilio</span><span class="sc">📱 WhatsApp Business API</span><span class="sc">📘 Meta APIs</span></div>
+</section>
+
+<!-- ROI CALCULATOR -->
+<section id="roi">
+  <div class="label">ROI Calculator</div>
+  <h2 class="sec-title" style="text-align:center">Calculate Your <span>Automation ROI</span></h2>
+  <p class="sec-desc" style="text-align:center;margin:0 auto">See exactly how much time and money AI automation can save your business each year.</p>
+  <div class="roi-wrap">
+    <div class="roi-g">
+      <div><div class="roi-lbl">Team Size (people)</div><input class="roi-inp" type="number" id="rTeam" value="12" min="1" oninput="calcROI()"></div>
+      <div><div class="roi-lbl">Avg Monthly Salary per Person (£)</div><input class="roi-inp" type="number" id="rSalary" value="3500" min="500" oninput="calcROI()"></div>
+      <div><div class="roi-lbl">Hours on Manual Tasks / Week</div><input class="roi-inp" type="number" id="rHours" value="18" min="1" oninput="calcROI()"></div>
+      <div><div class="roi-lbl">% of Tasks Automatable</div><input class="roi-inp" type="number" id="rAuto" value="70" min="10" max="95" oninput="calcROI()"></div>
+    </div>
+    <div class="roi-result">
+      <div class="roi-big" id="roiTotal">£0</div>
+      <div class="roi-sub">Estimated Annual Savings from AI Automation</div>
+    </div>
+    <div class="roi-break">
+      <div class="rb"><div class="n" id="roiHrs">0 hrs</div><div class="l">Hours Saved / Month</div></div>
+      <div class="rb"><div class="n" id="roiMon">£0</div><div class="l">Saved / Month</div></div>
+      <div class="rb"><div class="n" id="roiMult">0x</div><div class="l">ROI Multiple</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="proof">
+  <div class="label">Results</div>
+  <h2 class="sec-title">Real <span>Business Impact</span></h2>
+  <p class="sec-desc">Every number backed by a real implementation. Automation that actually moves the needle.</p>
+  <div class="proof-grid">
+    <div class="proof-card"><div class="proof-num">94%</div><h4>Support Ticket Auto-Resolution</h4><p>Built an AI support bot for an e-commerce brand handling 2,000+ daily messages across WhatsApp and Instagram — resolving 94% without any human involvement.</p><div class="proof-ind">🛒 E-Commerce</div></div>
+    <div class="proof-card"><div class="proof-num">£180K</div><h4>Pipeline from AI Outreach</h4><p>Deployed an AI LinkedIn + email outreach system for a SaaS company. 400 personalised sequences, 62 booked calls, £180K in qualified pipeline in 90 days.</p><div class="proof-ind">💻 SaaS / B2B</div></div>
+    <div class="proof-card"><div class="proof-num">22hrs→0</div><h4>Weekly Reporting Automated</h4><p>Replaced 22 hours of manual reporting per week with an AI dashboard pulling from 14 platforms, generating insights, and emailing the exec team every Monday.</p><div class="proof-ind">📊 Digital Agency</div></div>
+    <div class="proof-card"><div class="proof-num">5x</div><h4>Content Output, No Extra Headcount</h4><p>Built an AI content engine for a personal brand — 5x content output across LinkedIn, Instagram, and YouTube with zero additional team members hired.</p><div class="proof-ind">🎯 Personal Brand</div></div>
+    <div class="proof-card"><div class="proof-num">68%</div><h4>Lead Conversion Rate Increase</h4><p>Integrated AI lead qualification on WhatsApp for a property company. Response time dropped from 4 hours to under 2 minutes. Conversion rate up 68%.</p><div class="proof-ind">🏠 Real Estate</div></div>
+    <div class="proof-card"><div class="proof-num">£0 CAC</div><h4>AI-Organic Growth System</h4><p>Built a fully automated organic social + SEO system — consistent inbound leads with zero paid ad spend using AI content + WhatsApp follow-up automation.</p><div class="proof-ind">🌱 Consulting</div></div>
+  </div>
+</section>
+
+<!-- CTA FORM -->
+<section id="cta">
+  <div class="label" style="margin:0 auto 1rem;display:table">Let's Build</div>
+  <h2 class="sec-title" style="text-align:center;font-size:clamp(1.9rem,4vw,3rem)">Ready to Automate<br><span>Your Entire Business?</span></h2>
+  <p class="sec-desc" style="text-align:center;margin:.75rem auto 0">Book a free 30-minute AI Strategy Call. We'll map your highest-impact automation opportunities and define a clear roadmap.</p>
+  <div class="cta-form">
+    <div class="fg2">
+      <div class="fg"><label class="flbl">Full Name <span>*</span></label><input class="fi" type="text" id="fName" placeholder="e.g. Sarah Johnson"></div>
+      <div class="fg"><label class="flbl">Work Email <span>*</span></label><input class="fi" type="email" id="fEmail" placeholder="you@company.com"></div>
+    </div>
+    <!-- PHONE ROW -->
+    <div class="fg">
+      <label class="flbl">WhatsApp / Phone Number <span>*</span></label>
+      <div style="display:flex;gap:.5rem;align-items:stretch">
+        <select id="fCode" class="pcode">
+          <option value="+92" selected>🇵🇰 PK +92</option>
+          <option value="+44">🇬🇧 GB +44</option>
+          <option value="+1">🇺🇸 US +1</option>
+          <option value="+1">🇨🇦 CA +1</option>
+          <option value="+61">🇦🇺 AU +61</option>
+          <option value="+64">🇳🇿 NZ +64</option>
+          <option value="+971">🇦🇪 AE +971</option>
+          <option value="+966">🇸🇦 SA +966</option>
+          <option value="+974">🇶🇦 QA +974</option>
+          <option value="+973">🇧🇭 BH +973</option>
+          <option value="+968">🇴🇲 OM +968</option>
+          <option value="+965">🇰🇼 KW +965</option>
+          <option value="+962">🇯🇴 JO +962</option>
+          <option value="+961">🇱🇧 LB +961</option>
+          <option value="+20">🇪🇬 EG +20</option>
+          <option value="+212">🇲🇦 MA +212</option>
+          <option value="+213">🇩🇿 DZ +213</option>
+          <option value="+216">🇹🇳 TN +216</option>
+          <option value="+234">🇳🇬 NG +234</option>
+          <option value="+254">🇰🇪 KE +254</option>
+          <option value="+27">🇿🇦 ZA +27</option>
+          <option value="+233">🇬🇭 GH +233</option>
+          <option value="+251">🇪🇹 ET +251</option>
+          <option value="+255">🇹🇿 TZ +255</option>
+          <option value="+256">🇺🇬 UG +256</option>
+          <option value="+91">🇮🇳 IN +91</option>
+          <option value="+880">🇧🇩 BD +880</option>
+          <option value="+94">🇱🇰 LK +94</option>
+          <option value="+977">🇳🇵 NP +977</option>
+          <option value="+93">🇦🇫 AF +93</option>
+          <option value="+98">🇮🇷 IR +98</option>
+          <option value="+90">🇹🇷 TR +90</option>
+          <option value="+996">🇰🇬 KG +996</option>
+          <option value="+998">🇺🇿 UZ +998</option>
+          <option value="+7">🇷🇺 RU +7</option>
+          <option value="+7">🇰🇿 KZ +7</option>
+          <option value="+86">🇨🇳 CN +86</option>
+          <option value="+81">🇯🇵 JP +81</option>
+          <option value="+82">🇰🇷 KR +82</option>
+          <option value="+84">🇻🇳 VN +84</option>
+          <option value="+66">🇹🇭 TH +66</option>
+          <option value="+60">🇲🇾 MY +60</option>
+          <option value="+65">🇸🇬 SG +65</option>
+          <option value="+62">🇮🇩 ID +62</option>
+          <option value="+63">🇵🇭 PH +63</option>
+          <option value="+855">🇰🇭 KH +855</option>
+          <option value="+856">🇱🇦 LA +856</option>
+          <option value="+95">🇲🇲 MM +95</option>
+          <option value="+49">🇩🇪 DE +49</option>
+          <option value="+33">🇫🇷 FR +33</option>
+          <option value="+34">🇪🇸 ES +34</option>
+          <option value="+39">🇮🇹 IT +39</option>
+          <option value="+31">🇳🇱 NL +31</option>
+          <option value="+32">🇧🇪 BE +32</option>
+          <option value="+41">🇨🇭 CH +41</option>
+          <option value="+43">🇦🇹 AT +43</option>
+          <option value="+45">🇩🇰 DK +45</option>
+          <option value="+46">🇸🇪 SE +46</option>
+          <option value="+47">🇳🇴 NO +47</option>
+          <option value="+358">🇫🇮 FI +358</option>
+          <option value="+353">🇮🇪 IE +353</option>
+          <option value="+351">🇵🇹 PT +351</option>
+          <option value="+30">🇬🇷 GR +30</option>
+          <option value="+48">🇵🇱 PL +48</option>
+          <option value="+420">🇨🇿 CZ +420</option>
+          <option value="+36">🇭🇺 HU +36</option>
+          <option value="+40">🇷🇴 RO +40</option>
+          <option value="+380">🇺🇦 UA +380</option>
+          <option value="+375">🇧🇾 BY +375</option>
+          <option value="+55">🇧🇷 BR +55</option>
+          <option value="+54">🇦🇷 AR +54</option>
+          <option value="+56">🇨🇱 CL +56</option>
+          <option value="+57">🇨🇴 CO +57</option>
+          <option value="+51">🇵🇪 PE +51</option>
+          <option value="+58">🇻🇪 VE +58</option>
+          <option value="+52">🇲🇽 MX +52</option>
+          <option value="+53">🇨🇺 CU +53</option>
+          <option value="+506">🇨🇷 CR +506</option>
+          <option value="+507">🇵🇦 PA +507</option>
+          <option value="+502">🇬🇹 GT +502</option>
+          <option value="+880">🇧🇩 BD +880</option>
+        </select>
+        <input class="fi" type="tel" id="fPhone" placeholder="Enter your phone number here" style="flex:1">
+      </div>
+    </div>
+    <!-- COMPANY + WEBSITE -->
+    <div class="fg2">
+      <div class="fg"><label class="flbl">Company Name</label><input class="fi" type="text" id="fCompany" placeholder="e.g. Acme Corp"></div>
+      <div class="fg"><label class="flbl">Company Website</label><input class="fi" type="url" id="fWebsite" placeholder="https://yoursite.com"></div>
+    </div>
+    <!-- SERVICE + BUDGET -->
+    <div class="fg2">
+      <div class="fg">
+        <label class="flbl">Service Interested In <span>*</span></label>
+        <select class="fi" id="fService">
+          <option value="" disabled selected>Select a service…</option>
+          <option>AI Systems Architecture</option>
+          <option>Workflow Automation Engineering</option>
+          <option>AI Integration & API Orchestration</option>
+          <option>AI Data Pipelines & RAG Systems</option>
+          <option>AI Business Process Automation</option>
+          <option>AI Growth Infrastructure</option>
+          <option>AI Communication Systems (WhatsApp, etc.)</option>
+          <option>AI Customer Support Systems</option>
+          <option>AI Voice & Conversational AI</option>
+          <option>AI CRM & Customer Journey Design</option>
+          <option>AI Marketing Automation</option>
+          <option>AI Social Media Infrastructure</option>
+          <option>AI Content Repurposing Engine</option>
+          <option>AI Consulting & Strategy</option>
+          <option>AI Agentic Workflows</option>
+          <option>Intelligent Business Systems</option>
+          <option>Full AI Transformation (Multiple Services)</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label class="flbl">Monthly Budget</label>
+        <select class="fi" id="fBudget">
+          <option value="" disabled selected>Select a budget range…</option>
+          <option>Under £1,000/mo</option>
+          <option>£1,000 – £2,500/mo</option>
+          <option>£2,500 – £5,000/mo</option>
+          <option>£5,000 – £10,000/mo</option>
+          <option>£10,000 – £25,000/mo</option>
+          <option>£25,000+/mo</option>
+          <option>Project-based (one-off)</option>
+        </select>
+      </div>
+    </div>
+    <!-- TIMELINE -->
+    <div class="fg">
+      <label class="flbl">Ideal Start Timeline</label>
+      <select class="fi" id="fTimeline">
+        <option value="" disabled selected>When do you want to start?</option>
+        <option>Immediately (ASAP)</option>
+        <option>Within 2 weeks</option>
+        <option>Within 1 month</option>
+        <option>1–3 months</option>
+        <option>3–6 months (planning phase)</option>
+        <option>Just exploring for now</option>
+      </select>
+    </div>
+    <!-- MESSAGE -->
+    <div class="fg">
+      <label class="flbl">Tell Me About Your Project <span>*</span></label>
+      <textarea class="ftxt" id="fMsg" placeholder="Describe your biggest operational challenge or automation goal. The more detail, the better I can prepare for our call."></textarea>
+    </div>
+    <!-- DIVIDER -->
+    <div class="form-div">or book directly</div>
+    <a href="https://wa.me/923064444874?text=Hi%20Ahmar%2C%20I%27d%20like%20to%20book%20a%20free%20AI%20Strategy%20Call." target="_blank" class="btn btn-blue" style="justify-content:center;font-size:.9rem;padding:.85rem 1.5rem">
+      💬 Book via WhatsApp Instantly
+    </a>
+    <!-- SUBMIT -->
+    <button onclick="submitForm()" class="btn btn-blue" style="justify-content:center;font-size:.95rem;padding:.9rem 2rem;width:100%">
+      🚀 Request Free AI Strategy Call
+    </button>
+    <!-- SUCCESS -->
+    <div class="success-msg" id="successMsg">
+      ✅ Thanks! I'll be in touch within 24 hours to confirm your strategy call. Check WhatsApp too!
+    </div>
+    <!-- TRUST -->
+    <div class="trust-row">
+      <span class="trust">🔒 100% confidential</span>
+      <span class="trust">⚡ Reply within 24 hrs</span>
+      <span class="trust">🎯 No-obligation call</span>
+      <span class="trust">🌍 Remote-first delivery</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo" style="font-size:1.25rem">Ahmar<span style="color:var(--blue)">.</span>AI</div>
+      <p>AI &amp; Automation Systems Architect — building the intelligent infrastructure that powers tomorrow's businesses.</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">AI Systems Architecture</a></li>
+          <li><a href="#services">Workflow Automation</a></li>
+          <li><a href="#services">WhatsApp AI Bots</a></li>
+          <li><a href="#services">AI Voice Agents</a></li>
+          <li><a href="#services">AI Consulting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Platforms</h5>
+        <ul>
+          <li><a href="#social">WhatsApp</a></li>
+          <li><a href="#social">Instagram</a></li>
+          <li><a href="#social">LinkedIn</a></li>
+          <li><a href="#social">YouTube</a></li>
+          <li><a href="#social">TikTok</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#agents">AI Agents</a></li>
+          <li><a href="#stack">Tech Stack</a></li>
+          <li><a href="#proof">Results</a></li>
+          <li><a href="#roi">ROI Calculator</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="https://wa.me/923064444874" target="_blank">WhatsApp</a></li>
+          <li><a href="mailto:mughalahmar@gmail.com">Email</a></li>
+          <li><a href="#cta">Book a Call</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <p>© 2026 Ahmar Akram · AI &amp; Automation Systems Architect. All rights reserved.</p>
+    <div class="socials">
+      <a href="https://wa.me/923064444874" target="_blank" class="soc" title="WhatsApp">💬</a>
+      <a href="https://linkedin.com" target="_blank" class="soc" title="LinkedIn">💼</a>
+      <a href="https://instagram.com" target="_blank" class="soc" title="Instagram">📸</a>
+      <a href="https://youtube.com" target="_blank" class="soc" title="YouTube">▶️</a>
+      <a href="https://tiktok.com" target="_blank" class="soc" title="TikTok">🎵</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── TAB SWITCHER ── */
+const tabOrder = ['whatsapp','instagram','linkedin','youtube','tiktok','email','support','content'];
+function showTab(id, el, idx) {
+  document.querySelectorAll('.panels > div').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.ptab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  el.classList.add('active');
+  const pct = (idx / (tabOrder.length - 1)) * 100;
+  document.getElementById('tabBarFill').style.transform = 'translateX(' + (pct * (tabOrder.length - 1) / 1) + '%)';
+  // simpler: move fill indicator
+  const fill = document.getElementById('tabBarFill');
+  fill.style.width = (100 / tabOrder.length) + '%';
+  fill.style.transform = 'translateX(' + (idx * 100) + '%)';
+}
+// init bar
+(function(){
+  const fill = document.getElementById('tabBarFill');
+  fill.style.width = (100 / tabOrder.length) + '%';
+  fill.style.transform = 'translateX(0%)';
+})();
+
+/* ── ROI CALCULATOR ── */
+function fmt(n) {
+  if (n >= 1000000) return '£' + (n/1000000).toFixed(1) + 'M';
+  if (n >= 1000) return '£' + Math.round(n/1000) + 'K';
+  return '£' + Math.round(n).toLocaleString();
+}
+function calcROI() {
+  const team    = parseFloat(document.getElementById('rTeam').value)   || 0;
+  const salary  = parseFloat(document.getElementById('rSalary').value) || 0;
+  const hours   = parseFloat(document.getElementById('rHours').value)  || 0;
+  const autoPct = parseFloat(document.getElementById('rAuto').value)   || 0;
+  const hrRate  = salary / (4.33 * 40);
+  const hrsSavedPerPersonPerMonth = hours * 4.33 * (autoPct / 100);
+  const totalHrsSavedPerMonth = hrsSavedPerPersonPerMonth * team;
+  const monthlySaving = totalHrsSavedPerMonth * hrRate;
+  const annualSaving  = monthlySaving * 12;
+  const avgProjectCost = 5000;
+  const roiMult = monthlySaving > 0 ? (annualSaving / avgProjectCost).toFixed(1) : '0';
+  document.getElementById('roiTotal').textContent = fmt(annualSaving);
+  document.getElementById('roiHrs').textContent   = Math.round(totalHrsSavedPerMonth) + ' hrs';
+  document.getElementById('roiMon').textContent   = fmt(monthlySaving);
+  document.getElementById('roiMult').textContent  = roiMult + 'x';
+}
+calcROI();
+
+/* ── FORM SUBMIT ── */
+function submitForm() {
+  const name    = document.getElementById('fName').value.trim();
+  const email   = document.getElementById('fEmail').value.trim();
+  const phone   = document.getElementById('fPhone').value.trim();
+  const service = document.getElementById('fService').value;
+  const msg     = document.getElementById('fMsg').value.trim();
+  if (!name || !email || !phone || !service || !msg) {
+    alert('Please fill in all required fields marked with *');
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+  const code    = document.getElementById('fCode').value;
+  const company = document.getElementById('fCompany').value.trim();
+  const budget  = document.getElementById('fBudget').value;
+  const timeline= document.getElementById('fTimeline').value;
+  const waText  = encodeURIComponent(
+    "Hi Ahmar! I just submitted a contact form on your portfolio.\n\n" +
+    "Name: " + name + "\n" +
+    "Email: " + email + "\n" +
+    (company ? "Company: " + company + "\n" : "") +
+    "Service: " + service + "\n" +
+    (budget   ? "Budget: " + budget + "\n" : "") +
+    (timeline ? "Timeline: " + timeline + "\n" : "") +
+    "\nMessage:\n" + msg
+  );
+  window.open("https://wa.me/923064444874?text=" + waText, "_blank");
+  document.getElementById('successMsg').style.display = 'block';
+  document.getElementById('successMsg').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+/* ── SMOOTH ACTIVE NAV ── */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--blue-b)' : '';
+  });
+}, { passive: true });
+</script>
+</body>
+</html>
